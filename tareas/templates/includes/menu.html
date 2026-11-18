@@ -1,0 +1,16 @@
+{# Menú de navegación superior con los enlaces de la página #}
+<nav class="menu">
+    <ul>
+        <li><a href="{% url 'index' %}">Inicio</a></li>
+        <li><a href="{% url 'lista_proyectos' %}">Proyectos</a></li>
+        <li><a href="{% url 'dame_tarea' 1 %}">Tarea 1</a></li>
+        <li><a href="{% url 'tareas_completadas' 2023 2024 %}">Completadas</a></li>
+        <li><a href="{% url 'buscar_tareas' 'reservas' %}">Buscar</a></li>
+        <li><a href="{% url 'ultimo_comentario' 7 %}">Último comentario</a></li>
+        <li><a href="{% url 'usuarios_sin_tarea' %}">Sin tarea</a></li>
+        <li><a href="{% url 'ficha_usuario' 1 %}">Usuario 1</a></li>
+        <li><a href="{% url 'estadisticas_proyecto' 7 %}">Estadísticas</a></li>
+        <li><a href="{% url 'asignaciones_observaciones' 'diseño' %}">Observaciones</a></li>
+        <li><a href="{% url 'ultimos_comentarios_usuario' 1 %}">Comentarios usuario</a></li>
+    </ul>
+</nav>

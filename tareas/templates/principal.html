@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gestión de Tareas</title>
+    {# Archivo CSS #}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    {% include 'includes/menu.html' %}
+
+    <header class="cabecera">
+        {# Imagen #}
+        <img src="{% static 'imagenes/imagen.svg' %}" alt="Logo de Gestión de Tareas" width="60">
+        {% block cabecera %}{% endblock %}
+    </header>
+
+    <main class="contenido">
+        {% block contenido %}{% endblock %}
+    </main>
+
+    {% include 'includes/pie.html' %}
+
+    {# Archivo JavaScript #}
+    <script src="{% static 'javascript/tutorial.js' %}"></script>
+</body>
+</html>
