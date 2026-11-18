@@ -1,3 +1,9 @@
-<h1>Error 500</h1>
-<p>Error interno del servidor. Inténtalo de nuevo más tarde.</p>
-<a href="/">Volver al inicio</a>
+{% extends 'principal.html' %}
+
+{% block cabecera %}
+    <h1>Error 500</h1>
+{% endblock %}
+
+{% block contenido %}
+    <p>Error interno del servidor. Inténtalo de nuevo más tarde</p>
+{% endblock %}

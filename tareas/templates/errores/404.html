@@ -1,3 +1,9 @@
-<h1>Error 404</h1>
-<p>La página que buscas no existe.</p>
-<a href="{% url 'index' %}">Volver al inicio</a>
+{% extends 'principal.html' %}
+
+{% block cabecera %}
+    <h1>Error 404</h1>
+{% endblock %}
+
+{% block contenido %}
+    <p>La página que buscas no se encuentra</p>
+{% endblock %}
