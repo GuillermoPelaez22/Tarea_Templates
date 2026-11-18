@@ -1,8 +1,9 @@
+{# Un usuario sin tareas asignadas, con su perfil y lo que ha creado #}
 <h2>{{ u.nombre }} ({{ u.correo }})</h2>
 
 <h3>Perfil</h3>
-<p>Teléfono: {{ u.perfil.telefono }}</p>
-<p>Biografía: {{ u.perfil.biografia }}</p>
+<p>Teléfono: {{ u.perfil.telefono|cut:" "|default:"Sin teléfono" }}</p>
+<p>Biografía: {{ u.perfil.biografia|capfirst|linebreaksbr }}</p>
 <p>Alta: {{ u.perfil.fecha_alta|date:"d/m/Y" }}</p>
 
 <h3>Proyectos creados</h3>
@@ -15,20 +16,20 @@
 </ul>
 
 <h3>Tareas creadas</h3>
+{% if not u.tareas_creadas.all %}
+    <p>No ha creado ninguna tarea.</p>
+{% endif %}
 <ul>
 {% for t in u.tareas_creadas.all %}
     <li>{{ t.titulo }} ({{ t.get_estado_display }})</li>
-{% empty %}
-    <li>Ninguna.</li>
 {% endfor %}
 </ul>
 
 <h3>Comentarios</h3>
+<p>{{ u.comentarios.all|yesno:"Ha comentado,No ha comentado" }}</p>
 <ul>
 {% for c in u.comentarios.all %}
     <li>{{ c.texto }} ({{ c.fecha_comentario|date:"d/m/Y" }})</li>
-{% empty %}
-    <li>Ninguno.</li>
 {% endfor %}
 </ul>
 <hr>

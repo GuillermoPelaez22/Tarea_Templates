@@ -1,17 +1,21 @@
-<h2>{{ p.nombre }}</h2>
-<p>{{ p.descripcion }}</p>
+{# Un proyecto con su creador y sus tareas #}
+<h2>{{ p.nombre|upper }}</h2>
+<p>{{ p.descripcion|capfirst }}</p>
 <p>Inicio: {{ p.fecha_inicio|date:"d/m/Y" }}</p>
 <p>Creador: {{ p.creador.nombre }} ({{ p.creador.correo }})</p>
+
+{% if p.tareas.all|length >= 3 %}
+    <p><strong>Proyecto con mucha actividad.</strong></p>
+{% endif %}
 
 <h3>Tareas</h3>
 <ul>
 {% for t in p.tareas.all %}
-    <li>
+    <li class="{% cycle 'par' 'impar' %}">
         <strong>{{ t.titulo }}</strong> ({{ t.get_estado_display }})
         · creada el {{ t.fecha_creacion|date:"d/m/Y" }}
         · por {{ t.creador.nombre }}
-        · Etiquetas:
-        {% for e in t.etiquetas.all %}{{ e.nombre }}{% if not forloop.last %}, {% endif %}{% empty %}ninguna{% endfor %}
+        · Etiquetas: {{ t.etiquetas.all|join:", "|default:"ninguna" }}
     </li>
 {% empty %}
     <li>Sin tareas.</li>

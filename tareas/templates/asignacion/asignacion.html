@@ -1,5 +1,5 @@
 <h2>{{ a.tarea.titulo }}</h2>
-<p>Observaciones: {{ a.observaciones }}</p>
+<p>Observaciones: {{ a.observaciones|truncatechars:60|default:"Sin observaciones" }}</p>
 <p>Asignada el {{ a.fecha_asignacion|date:"d/m/Y" }}</p>
 
 <h3>Usuario asignado</h3>
