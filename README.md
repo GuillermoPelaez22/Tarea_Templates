@@ -15,3 +15,11 @@
 
 ### Ejercicio 9: template filters
 `date`, `time`, `title`, `upper`, `lower`, `capfirst`, `length`, `pluralize`, `default`, `truncatechars`, `join`, `cut`, `linebreaksbr` y `yesno`.
+
+## Cómo probar el proyecto
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install django
+    python manage.py migrate
+    python manage.py loaddata datos
+    python manage.py runserver
