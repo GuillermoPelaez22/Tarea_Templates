@@ -6,21 +6,7 @@
 
 {% block contenido %}
     {% for comentario in comentarios %}
-        <h2>Usuario</h2>
-        <p>{{ comentario.autor.nombre }} ({{ comentario.autor.correo }})</p>
-        <p>Teléfono: {{ comentario.autor.perfil.telefono }}</p>
-        <p>Biografía: {{ comentario.autor.perfil.biografia }}</p>
-        <p>Alta: {{ comentario.autor.perfil.fecha_alta|date:"d/m/Y" }}</p>
-
-        <h2>Comentario</h2>
-        <p>{{ comentario.texto }}</p>
-        <p>Fecha: {{ comentario.fecha_comentario|date:"d/m/Y" }}</p>
-
-        <h2>Tarea</h2>
-        <p>{{ comentario.tarea.titulo }} ({{ comentario.tarea.get_estado_display }})</p>
-
-        <h2>Proyecto</h2>
-        <p>{{ comentario.tarea.proyecto.nombre }} - {{ comentario.tarea.proyecto.descripcion }}</p>
+        {% include 'comentario/comentario.html' %}
     {% empty %}
         <p>Este proyecto todavía no tiene comentarios.</p>
     {% endfor %}
